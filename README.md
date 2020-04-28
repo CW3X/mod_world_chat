@@ -1,7 +1,20 @@
-# Description
-World Chat Module enables you to talk globally with your faction or with both factions (if enabled by server).
+# ![logo](https://raw.githubusercontent.com/azerothcore/azerothcore.github.io/master/images/logo-github.png) AzerothCore
+- Latest build status with azerothcore: [![Build Status](https://travis-ci.org/azerothcore/mod-world-chat.svg?branch=master)](https://travis-ci.org/azerothcore/mod-world-chat)
+# World Chat
 
-The GM can see both factions messages if he has the chat active and gm mode on. (.gm on)
+# Description
+World Chat Module is a simple global ( faction or cross-faction ) chat for AzerothCore.
+
+# Functionality
+* How to chat?
+    - .chat Message - This works for everyone, GM and players.
+
+* How a GM can send a message to the other faction chat if cross-faction is disabled?
+    - Use .chat command followed by the initial of the faction ( Example: For horde use .chath <Message> )
+    
+* How can i show or hide by gm status?
+    - You can show your GM or DEV status by having .gm chat on and .gm on. Also you can be shown as a DEV if you have .dev on
+
 # Commands
 List of fully functional commands:
 * .chat <$TEXT>
@@ -34,38 +47,25 @@ git clone https://github.com/wizzymore/mod_world_chat.git
 
 ## Database Setup
 ### Setting up commands
-```sql
-INSERT INTO `command` (`name`, `security`, `help`) VALUES ('chata', 1, 'Syntax: .chata $text - To speak as a GM only to Alliance');
-INSERT INTO `command` (`name`, `security`, `help`) VALUES ('chath', 1, 'Syntax: .chath $text - To speak as a GM only to Horde');
-INSERT INTO `command` (`name`, `security`, `help`) VALUES ('chat', 0, 'Syntax: .chat $text\n.chat on To show World Chat\n.chat off To hide World Chat');
-```
+Open DB-Assembler and use the option 8) Import-customs
+
+OR
+
+Run the following sql file in your database: [this](/sql/world/command.sql)
+
+
 
 ## Server Config Setup
-Create a file named : "WorldChat.conf" or copy the one from <build_of_335>/bin/<your_build_method/WorldChat.conf
+### On Windows
+Modify the config : "WorldChat.conf" by your needs.
+Edit the settings in the .conf file but keep both!
+
+### On Linux
+Navigate to /etc/ folder from your azeroth build files and execute this command:
+```bash
+cp WorldChat.conf.dist WorldChat.conf
 ```
-###################################################################################################
-# WIZZY WORLD CHAT SYSTEM
-#
-# These settings control WiiZZy's World Chat System
-#
-#    World_Chat.Enable
-#        Description: Enables WiiZZy's World Chat System
-#        Default:     True - (Enabled)
-#                     False - (Disabled)
-
-World_Chat.Enable = true
-
-#
-#    World_Chat.CrossFactions
-#        Description: Enables world chatting cross-faction
-#        Default:     False - (Disabled)
-#                     True - (Enabled)
-#
-
-World_Chat.CrossFactions = false
-
-#
-###################################################################################################
-```
+Modify the config : "WorldChat.conf" by your needs.
+Edit the settings in the .conf file but keep both!
 ## Start the server and enjoy
 Done, you are ready to use the World Chat System! Go online and try it out!
